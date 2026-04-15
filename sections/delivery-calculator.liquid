@@ -1,0 +1,72 @@
+<section class="delivery-calculator-section" style="padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;">
+  <div class="page-width">
+    <div style="max-width: 640px; margin: 0 auto; text-align: center;">
+      {% if section.settings.heading != blank %}
+        <h2 style="margin-bottom: 0.5rem;">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <p style="color: #666; margin-bottom: 1.5rem;">{{ section.settings.description }}</p>
+      {% endif %}
+      <div id="delivery-cost-widget"></div>
+    </div>
+  </div>
+
+  {% assign widget_url = section.settings.widget_url %}
+  {% if widget_url == blank %}
+    {% assign widget_url = 'https://cdn.jsdelivr.net/gh/eoinlynchcodes/delivery-cost-widget@latest/widget.js' %}
+  {% endif %}
+  <script src="{{ widget_url }}" defer></script>
+</section>
+
+{% schema %}
+{
+  "name": "Delivery Calculator",
+  "tag": "section",
+  "class": "delivery-calculator-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Check Delivery Cost"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Enter your Eircode or town/village to get an instant delivery estimate."
+    },
+    {
+      "type": "text",
+      "id": "widget_url",
+      "label": "Widget Script URL (optional)",
+      "info": "Override the default CDN URL for the widget script. Leave blank to use the default."
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Delivery Calculator"
+    }
+  ]
+}
+{% endschema %}

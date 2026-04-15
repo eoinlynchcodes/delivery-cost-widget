@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "delivery-calculator",
+      "settings": {
+        "heading": "Check Delivery Cost",
+        "description": "Enter your Eircode or town/village to get an instant delivery estimate.",
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": ["main"]
+}
