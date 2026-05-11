@@ -161,17 +161,13 @@
 
       if (data.deliverable) {
         resultEl.innerHTML =
-          '<p class="dcw-distance">Approximately <strong>' + data.distance_km + ' km</strong> from our yard</p>' +
-          '<div class="dcw-fees">' +
-            '<div class="dcw-fee-row">' +
-              '<span class="dcw-fee-label">Orders under \u20ac220</span>' +
-              '<span class="dcw-fee-amount">' + formatCurrency(data.fee_standard) + '</span>' +
-            '</div>' +
-            '<div class="dcw-fee-row">' +
-              '<span class="dcw-fee-label">Orders \u20ac220+</span>' +
-              '<span class="dcw-fee-amount">' + formatCurrency(data.fee_large) + '</span>' +
-            '</div>' +
-          '</div>';
+  '<p class="dcw-distance">Approximately <strong>' + data.distance_km + ' km</strong> from our yard</p>' +
+  '<div class="dcw-fees">' +
+    '<div class="dcw-fee-row">' +
+      '<span class="dcw-fee-label">Estimated delivery cost</span>' +
+      '<span class="dcw-fee-amount">' + formatCurrency(data.fee) + '</span>' +
+    '</div>' +
+  '</div>';
         resultEl.style.display = 'block';
       } else {
         notDeliverableEl.textContent = data.message;
