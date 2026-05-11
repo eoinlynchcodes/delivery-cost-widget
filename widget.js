@@ -9,8 +9,11 @@
   var API_URL = 'https://delivery-cost-calc-by-eoin-lynch.vercel.app/api/widget-calculate';
 
   function formatCurrency(amount) {
-    return '\u20ac' + amount.toFixed(2);
+  if (amount === undefined || amount === null || isNaN(Number(amount))) {
+    return 'N/A';
   }
+  return '€' + Number(amount).toFixed(2);
+}
 
   function injectStyles() {
     if (document.getElementById('dcw-styles')) return;
